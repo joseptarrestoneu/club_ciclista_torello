@@ -1,0 +1,4 @@
+node_modules
+dist
+originals-full-res
+.env
