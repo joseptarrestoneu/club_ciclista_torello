@@ -16,7 +16,7 @@ export const news = [
     title: "Els petits també rodem: Circuit Infantil de BTT d'Osona",
     entradeta: "El futur del club també té dos rodes (i, de moment, fa servir BTT).",
     cos: "El Circuit Infantil de BTT d'Osona és una activitat del Consell Esportiu d'Osona que reparteix curses per la comarca per a nens i nenes de 3 a 14 anys. Aquí el que compta és gaudir i fer pinya. Un grapat de nens i nenes vinculats al club hi van participar, cadascun a la seva categoria, amb el suport de família i companys a la sortida i a l'arribada. Veure'ls arribar amb un somriure ens recorda que tot comença així.",
-    tancament: "Si teniu un fill o filla que vulgui provar la bici de muntanya, escriviu-nos.",
+    tancament: "Si teniu un fill o filla que vulgui provar la bici de muntanya, escriviu-nos i parlem.",
     photo: "/assets/foto-2.jpg",
   },
   {
