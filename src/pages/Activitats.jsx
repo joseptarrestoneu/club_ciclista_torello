@@ -54,7 +54,7 @@ export default function Activitats() {
           <div className="cta-band">
             <div className="when">
               <strong>Diumenge, 8:00 h</strong>
-              <span>Punt de trobada: Plaça Nova, Torelló</span>
+              <span>Punt de trobada: Gasolinera Galp, Torelló</span>
             </div>
             <div className="band-actions">
               <Link to="#calendari" className="btn btn-primary">Veure calendari complet</Link>
@@ -152,7 +152,7 @@ export default function Activitats() {
       <section className="band band-primary">
         <div className="container band-split">
           <div>
-            <h2>T'esperem a la plaça!</h2>
+            <h2>T'esperem!</h2>
             <p>Primera vegada amb nosaltres? Pots venir a provar una sortida abans de fer-te soci. Escriu-nos i t'assignem el grup de nivell adequat.</p>
           </div>
           <div className="band-actions">

@@ -21,7 +21,7 @@ export const events = [
     dateISO: "2027-06-17",
     name: "Social Ride & Recovery",
     tag: "Sortida oberta",
-    text: "Ritme suau combinat amb recuperació activa, obert a tots els nivells, fora del ritme habitual de diumenge.",
+    text: "Sortida social, obert a tots els nivells i ritmes però amb un final a \"lo grande\" amb recompensa per a tots.",
   },
   {
     day: "24",
@@ -29,7 +29,7 @@ export const events = [
     dateISO: "2027-07-24",
     name: "Cursa Veterans",
     tag: "Prova competitiva",
-    text: "Prova competitiva reservada a la categoria d'edat veterans.",
+    text: "Prova competitiva reservada a la categoria d'edat veterans (pendent de confirmació).",
   },
   {
     day: "26-28",
@@ -46,7 +46,7 @@ export const events = [
     dateISO: "2027-09-18",
     name: "Pescallunes Attack",
     tag: "Repte cronometrat",
-    text: "Ciclisme èpic amb bicicletes clàssiques, un clàssic nocturn pel nucli antic de Torelló.",
+    text: "Ciclisme èpic amb bicicletes clàssiques, un clàssic nocturn pel nucli antic de Torelló (pendent de confirmació).",
   },
   {
     day: "23",
@@ -54,6 +54,6 @@ export const events = [
     dateISO: "2027-10-23",
     name: "2 hores resistència BTT",
     tag: "Resistència BTT",
-    text: "Completa el màxim de voltes possible en un circuit durant dues hores.",
+    text: "Completa el màxim de voltes possible en un circuit durant dues hores (pendent de confirmació).",
   },
 ];

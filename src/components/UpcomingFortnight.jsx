@@ -20,7 +20,7 @@ function isInSeason(date) {
 function recurringActivityFor(date) {
   if (!isInSeason(date)) return null;
   const weekday = date.getDay(); // 0 = diumenge, 2 = dimarts, 4 = dijous
-  if (weekday === 0) return "Sortida de diumenge · 8:00 h, Plaça Nova";
+  if (weekday === 0) return "Sortida de diumenge · 8:00 h, Gasolinera Galp";
   if (weekday === 2) return "Social Ride iniciàtica";
   if (weekday === 4) return "Social Ride";
   return null;

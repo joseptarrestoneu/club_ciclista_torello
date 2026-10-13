@@ -32,7 +32,7 @@ export default function Home() {
             <div className="stat"><Counter target={180} suffix="+" /><span>Socis i sòcies</span></div>
             <div className="stat"><Counter target={57} /><span>Anys d'història</span></div>
             <div className="stat"><Counter target={60} /><span>Sortides l'any</span></div>
-            <div className="stat"><Counter target={3} /><span>Grups de nivell</span></div>
+            <div className="stat"><Counter target={4} /><span>Activitats Socials</span></div>
           </div>
         </div>
       </div>
@@ -121,6 +121,7 @@ export default function Home() {
               <div className="ride-date"><strong>18</strong><span>set.</span></div>
               <h3>Pescallunes Attack</h3>
               <p>Ciclisme èpic amb bicicletes clàssiques pel nucli antic de Torelló.</p>
+              <p>(pendent de confirmació)</p>
             </article>
           </div>
           <p style={{ marginTop: 32 }}>
