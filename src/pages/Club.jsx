@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HeartIcon, MapPinIcon, TrophyIcon, HomeIcon } from "../components/icons.jsx";
+import { HeartIcon, MapPinIcon, TrophyIcon } from "../components/icons.jsx";
 
 const timeline = [
   {
@@ -30,20 +31,48 @@ const timeline = [
 ];
 
 const board = [
-  { initials: "MR", name: "Marta Roca", role: "Presidenta", text: "Sòcia des de 2003, impulsora de la secció de Brevets del club." },
-  { initials: "JP", name: "Jordi Puig", role: "Vicepresident", text: "Coordina les sortides de carretera i la relació amb altres clubs." },
-  { initials: "NC", name: "Núria Camps", role: "Secretària", text: "Gestiona les inscripcions, les llicències i la comunicació del club." },
-  { initials: "AV", name: "Albert Vila", role: "Tresorer", text: "Responsable de la secció de gravel i del manteniment del material." },
+  { initials: "MG", photo: "/assets/MG.jpg", name: "Marc Gilabert", role: "President", text: "Soci des de 2003, impulsor de la secció de Brevets del club." },
+  { initials: "IK", photo: "/assets/IK.jpg", name: "Iker Carrasco", role: "Vicepresident", text: "Coordina les sortides de carretera i la relació amb altres clubs." },
+  { initials: "MO", photo: "/assets/MO.jpg", name: "Maria Ojeda", role: "Secretària", text: "Gestiona les llicències, la roba i els temes administratius del club." },
+  { initials: "AC", photo: "/assets/foto-6.jpg", name: "Anna Cid", role: "Tresorera", text: "Sòcia des de 2010, responsable de la tresoreria i la gestió econòmica del club." },
 ];
 
 export default function Club() {
+  const [joinForm, setJoinForm] = useState({ nom: "", email: "" });
+  const [joined, setJoined] = useState(false);
+
+  const handleJoin = (event) => {
+    event.preventDefault();
+    setJoined(true);
+  };
+
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <div className="breadcrumb"><Link to="/" style={{ color: "inherit" }}>Inici</Link> / El Club</div>
-          <h1>El Club</h1>
-          <p>Més de cinquanta-cinc anys pedalant per les carreteres i camins d'Osona, amb la mateixa passió des del primer dia.</p>
+      <section className="hero">
+        <div
+          className="hero-slideshow"
+          style={{
+            backgroundImage: "url(/assets/foto-3.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="container hero-top">
+          <p className="hero-kicker">Club Ciclista Torelló - Osona, des de 1969</p>
+          <h1>
+            El club on
+            <br />
+            cadascú troba el seu ritme
+          </h1>
+          <p className="lead">
+            Sortides, cròniques, fotos i tot el que fem plegats. Un club obert a tothom que vulgui pedalar, compartir moments i gaudir de la carretera amb bona companyia.
+          </p>
+          <nav className="tab-nav" aria-label="Seccions del club">
+            <Link to="/activitats">Sortides</Link>
+            <Link to="/noticies">Notícies</Link>
+            <Link to="/galeria">Galeria</Link>
+            <Link to="/contacte">Fes-te soci</Link>
+          </nav>
         </div>
       </section>
 
@@ -51,6 +80,13 @@ export default function Club() {
         <div className="container">
           <div className="section-head">
             <h2>De quatre amics a un club de 180 socis</h2>
+            <p>El Club Ciclista Torelló és una entitat ciclista del municipi, activa des de 1969, que agrupa persones de totes les edats i nivells amb un mateix punt de trobada: sortir a rodar juntes, sigui quina sigui la seva experiència sobre la bicicleta.</p>
+            <p>Per a la temporada 2027 fem un salt digital: a banda d'aquesta pàgina web, posem en marxa l'app ActClub per gestionar les sortides i fer de carnet de soci digital.</p>
+            <div className="chip-row" style={{ marginTop: 16 }}>
+              <span className="chip chip-primary">Iniciació</span>
+              <span className="chip">Mitjà</span>
+              <span className="chip">Avançat / Brevets</span>
+            </div>
           </div>
           <div className="timeline">
             {timeline.map((item) => (
@@ -64,6 +100,39 @@ export default function Club() {
         </div>
       </section>
 
+      <section className="band band-primary">
+        <div className="container band-split">
+          <div>
+            <h2>Més de 50 anys pedalant</h2>
+            <p>La nostra missió: apropar el ciclisme a més persones del territori i mantenir viva una comunitat que surt a rodar junta, sigui quin sigui el nivell de cadascú, des de qui s'hi inicia fins als socis més veterans.</p>
+            <p>Vols rebre les properes sortides i novetats del club directament al correu? Deixa'ns les teves dades.</p>
+            {joined ? (
+              <p style={{ color: "#fff", fontWeight: 600, marginTop: 24 }}>Gràcies! Ja et tenim apuntat/da.</p>
+            ) : (
+              <form className="inline-form" onSubmit={handleJoin}>
+                <input
+                  type="text"
+                  placeholder="El teu nom"
+                  aria-label="Nom"
+                  required
+                  value={joinForm.nom}
+                  onChange={(e) => setJoinForm((f) => ({ ...f, nom: e.target.value }))}
+                />
+                <input
+                  type="email"
+                  placeholder="El teu correu electrònic"
+                  aria-label="Correu electrònic"
+                  required
+                  value={joinForm.email}
+                  onChange={(e) => setJoinForm((f) => ({ ...f, email: e.target.value }))}
+                />
+                <button type="submit" className="btn btn-primary">Apunta'm</button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
       <section className="section section--alt">
         <div className="container">
           <div className="section-head section-head--center">
@@ -72,8 +141,8 @@ export default function Club() {
           <div className="grid grid-3">
             <div className="card">
               <div className="icon"><HeartIcon /></div>
-              <h3>Companyonia</h3>
-              <p>Ningú pedala sol: sempre hi ha algú que t'espera al capdamunt del port.</p>
+              <h3>Ningú pedala sol</h3>
+              <p>Sempre hi ha algú que t'espera al capdamunt del port.</p>
             </div>
             <div className="card">
               <div className="icon"><MapPinIcon /></div>
@@ -82,14 +151,14 @@ export default function Club() {
             </div>
             <div className="card">
               <div className="icon"><TrophyIcon /></div>
-              <h3>Esforç i superació</h3>
-              <p>Fomentem l'esport de base i acompanyem els nostres socis fins als reptes de llarga distància.</p>
+              <h3>Bon rotllo</h3>
+              <p>Gaudim de l'esport i fomentem un ambient positiu i divertit dins del club.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
           <div className="section-head section-head--center">
             <h2>Junta directiva</h2>
@@ -97,34 +166,44 @@ export default function Club() {
           </div>
           <div className="grid grid-4">
             {board.map((member) => (
-              <div className="card person-card" key={member.initials}>
-                <div className="avatar">{member.initials}</div>
-                <h3>{member.name}</h3>
-                <div className="role">{member.role}</div>
-                <p>{member.text}</p>
+              <div
+                className="card person-card"
+                key={member.initials}
+                style={member.photo ? {
+                  backgroundImage: `linear-gradient(180deg, rgba(10, 9, 8, 0.18), rgba(10, 9, 8, 0.75)), url(${member.photo})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                } : undefined}
+              >
+                <div className="person-card-overlay">
+                  <p>{member.text}</p>
+                  <div className="role">{member.role}</div>
+                  <h2>{member.name}</h2>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section section--alt">
+      <section className="section">
         <div className="container">
-          <div className="grid grid-2" style={{ alignItems: "center" }}>
-            <div>
-              <h2>Local social al centre de Torelló</h2>
-              <p>El nostre local és el punt de trobada abans i després de cada sortida: hi guardem el material del club, hi fem les xerrades tècniques i hi celebrem el sopar de final de temporada.</p>
-              <p>Obert els dimarts i dijous a la tarda, i els dissabtes abans de cada sortida de grup.</p>
-              <Link to="/contacte" className="btn btn-primary">Com arribar-hi</Link>
+          <div className="section-head section-head--center">
+            <h2>Col·laboracions i presència al territori</h2>
+          </div>
+          <div className="grid grid-2">
+            <div className="card">
+              <h3>Ràdio Ona Torelló</h3>
+              <p>Mantenim una col·laboració activa amb Ràdio Ona Torelló. Per a la temporada 2027 l'ampliem amb "Les Ciclistes": un espai mensual amb especials dedicats al Giro d'Itàlia, el Tour de França i la Vuelta a Espanya, i la retransmissió en directe del Tour de Charleys.</p>
             </div>
-            <div className="card" style={{ padding: 0, overflow: "hidden" }}>
-              <div style={{ height: 280, margin: 0, borderRadius: 14, background: "var(--color-ink)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff" }}>
-                <HomeIcon style={{ width: 56, height: 56 }} />
-              </div>
+            <div className="card">
+              <h3>Ciclisme a les escoles</h3>
+              <p>A l'abril i al maig fem presentacions a les diferents escoles de Torelló per apropar el ciclisme als alumnes del municipi.</p>
             </div>
           </div>
         </div>
       </section>
+
     </>
   );
 }

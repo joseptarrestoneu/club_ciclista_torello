@@ -4,6 +4,7 @@ import { MapPinIcon, MailIcon, PhoneIcon, ClockIcon, InstagramIcon, FacebookIcon
 
 export default function Contacte() {
   const [submitted, setSubmitted] = useState(false);
+  const [motiu, setMotiu] = useState("soci");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,15 +15,72 @@ export default function Contacte() {
     }
     setSubmitted(true);
     form.reset();
+    setMotiu("soci");
   };
 
   return (
     <>
-      <section className="page-hero">
+      <section className="hero">
+        <div
+          className="hero-slideshow"
+          style={{
+            backgroundImage: "url(/assets/foto-5.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="container hero-top">
+          <p className="hero-kicker">Club Ciclista Torelló - Osona, des de 1969</p>
+          <h1>
+            Contacta
+            <br />
+            amb el club
+          </h1>
+          <p className="lead">
+            Tens dubtes, vols provar una sortida o fer-te soci? Escriu-nos i et respondrem el més aviat possible amb tota la informació que necessites.
+          </p>
+          <div className="hero-actions">
+            <Link to="/activitats" className="btn btn-primary">Veure sortides</Link>
+            <Link to="#formulari" className="btn btn-outline">Escriu-nos</Link>
+          </div>
+          {/* <nav className="tab-nav" aria-label="Seccions de contacte">
+            <Link to="/activitats">Sortides</Link>
+            <Link to="/noticies">Notícies</Link>
+            <Link to="/galeria">Galeria</Link>
+            <Link to="/contacte">Contacte</Link>
+          </nav> */}
+        </div>
+      </section>
+
+      <section className="section section--alt">
         <div className="container">
-          <div className="breadcrumb"><Link to="/" style={{ color: "inherit" }}>Inici</Link> / Contacte</div>
-          <h1>Contacte</h1>
-          <p>Tens dubtes, vols provar una sortida o fer-te soci? Escriu-nos i et respondrem el més aviat possible.</p>
+          <div className="section-head section-head--center">
+            <h2>Fes-te soci</h2>
+            <p>Tria la modalitat que et convingui més; nosaltres t'ajudem amb la resta del tràmit.</p>
+          </div>
+          <div className="price-grid">
+            <label className={`price-card${motiu === "soci" ? " active" : ""}`}>
+              <input
+                type="radio"
+                name="tipus-soci"
+                checked={motiu === "soci"}
+                onChange={() => setMotiu("soci")}
+              />
+              <strong>Soci amb llicència</strong>
+              <p>Inclou llicència federativa i assegurança per rodar en sortides de club i competicions.</p>
+            </label>
+            <label className={`price-card${motiu === "prova" ? " active" : ""}`}>
+              <input
+                type="radio"
+                name="tipus-soci"
+                checked={motiu === "prova"}
+                onChange={() => setMotiu("prova")}
+              />
+              <strong>Vull provar abans</strong>
+              <p>Vine a una sortida de prova sense compromís i decideix després si et fas soci.</p>
+            </label>
+          </div>
+          <p className="form-note">Escriu-nos amb el formulari de sota i t'informem de la quota vigent i la documentació necessària.</p>
         </div>
       </section>
 
@@ -60,12 +118,12 @@ export default function Contacte() {
                 <div className="icon"><ClockIcon /></div>
                 <div>
                   <h4>Horari del local</h4>
-                  <p>Dimarts i dijous, 19:00–21:00 · Dissabtes abans de cada sortida</p>
+                  <p>Dimarts i dijous, 19:00-21:00 · Dissabtes abans de cada sortida</p>
                 </div>
               </div>
 
               <div className="social-row">
-                <a href="#" aria-label="Instagram"><InstagramIcon /></a>
+                <a href="https://www.instagram.com/clubciclistatorello/" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
                 <a href="#" aria-label="Facebook"><FacebookIcon /></a>
               </div>
 
@@ -100,7 +158,12 @@ export default function Contacte() {
                   </div>
                   <div className="field">
                     <label htmlFor="motiu">Motiu del contacte</label>
-                    <select id="motiu" name="motiu" defaultValue="soci">
+                    <select
+                      id="motiu"
+                      name="motiu"
+                      value={motiu}
+                      onChange={(e) => setMotiu(e.target.value)}
+                    >
                       <option value="soci">Vull fer-me soci</option>
                       <option value="prova">Vull provar una sortida</option>
                       <option value="brevets">Brevets</option>

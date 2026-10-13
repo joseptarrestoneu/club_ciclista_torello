@@ -11,14 +11,14 @@ const filters = [
 ];
 
 const items = [
-  { category: "carretera", label: "Ruta del Ter, 2026", color: "#ff5669" },
-  { category: "gravel", label: "Pujada al Far", color: "#1a1a1a" },
-  { category: "club", label: "Sopar de temporada", color: "#6b6558" },
-  { category: "brevets", label: "Brevet BRM 200 Osona", color: "#d63a4e" },
-  { category: "carretera", label: "Volta al Bisaura", color: "#1a1a1a" },
-  { category: "gravel", label: "Circuit Collsacabra", color: "#6b6558" },
-  { category: "club", label: "45è aniversari del club", color: "#ff5669" },
-  { category: "brevets", label: "Sortida de Brevets", color: "#d63a4e" },
+  { category: "carretera", label: "Ruta del Ter, 2026", photo: "/assets/foto-1.jpg" },
+  { category: "gravel", label: "Pujada al Far", photo: "/assets/foto-2.jpg" },
+  { category: "club", label: "Sopar de temporada", photo: "/assets/foto-3.jpg" },
+  { category: "brevets", label: "Brevet BRM 200 Osona", photo: "/assets/foto-4.jpg" },
+  { category: "carretera", label: "Volta al Bisaura", photo: "/assets/foto-5.jpg" },
+  { category: "gravel", label: "Circuit Collsacabra", photo: "/assets/foto-6.jpg" },
+  { category: "club", label: "45è aniversari del club", photo: "/assets/foto-7.jpg" },
+  { category: "brevets", label: "Sortida de Brevets", photo: "/assets/foto-1.jpg" },
 ];
 
 export default function Galeria() {
@@ -27,11 +27,35 @@ export default function Galeria() {
 
   return (
     <>
-      <section className="page-hero">
-        <div className="container">
-          <div className="breadcrumb"><Link to="/" style={{ color: "inherit" }}>Inici</Link> / Galeria</div>
-          <h1>Galeria</h1>
-          <p>Un tast de les sortides, competicions i trobades del club. Substitueix aquestes plantilles per les teves pròpies fotos.</p>
+      <section className="hero">
+        <div
+          className="hero-slideshow"
+          style={{
+            backgroundImage: "url(/assets/foto-4.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+        <div className="container hero-top">
+          <p className="hero-kicker">Club Ciclista Torelló - Osona, des de 1969</p>
+          <h1>
+            Galeria
+            <br />
+            del club
+          </h1>
+          <p className="lead">
+            Un tast de les sortides, competicions i trobades del club. Aquí recollim els moments que defineixen la nostra vida de grup i el nostre ambient.
+          </p>
+          <div className="hero-actions">
+            <Link to="/contacte" className="btn btn-primary">Fes-te soci</Link>
+            <Link to="/activitats" className="btn btn-outline">Veure sortides</Link>
+          </div>
+          {/* <nav className="tab-nav" aria-label="Seccions de la galeria">
+            <Link to="/activitats">Sortides</Link>
+            <Link to="/noticies">Notícies</Link>
+            <Link to="/galeria">Galeria</Link>
+            <Link to="/contacte">Contacte</Link>
+          </nav> */}
         </div>
       </section>
 
@@ -51,7 +75,8 @@ export default function Galeria() {
 
           <div className="gallery-grid">
             {visible.map((item) => (
-              <div className="gallery-item" key={item.label} style={{ background: item.color }}>
+              <div className="gallery-item" key={item.label}>
+                <img src={item.photo} alt="" />
                 <CameraIcon />
                 <span>{item.label}</span>
               </div>

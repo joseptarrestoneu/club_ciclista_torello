@@ -11,7 +11,7 @@ export default function Footer() {
               <BikeIcon />
               Club Ciclista Torelló
             </div>
-            <p>Club ciclista de la comarca d'Osona, obert a totes les edats i nivells des de 1969.</p>
+            <p>Club ciclista de la comarca d'Osona, obert a persones majors d'edat i a tots els nivells des de 1969.</p>
           </div>
           <div>
             <h4>Navegació</h4>
@@ -33,7 +33,7 @@ export default function Footer() {
           <div>
             <h4>Segueix-nos</h4>
             <div className="social-row">
-              <a href="#" aria-label="Instagram"><InstagramIcon /></a>
+              <a href="https://www.instagram.com/clubciclistatorello/" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
               <a href="#" aria-label="Facebook"><FacebookIcon /></a>
             </div>
           </div>
