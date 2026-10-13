@@ -16,7 +16,7 @@
   --radius: 10px;
   --radius-sm: 6px;
   --max-width: 1180px;
-  --header-clearance: 96px;
+  --header-clearance: 120px;
   --font-display: "Oswald", "Segoe UI", system-ui, sans-serif;
   --font-body: "Open Sans", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -1769,10 +1769,6 @@ textarea:focus-visible {
 }
 
 @media (max-width: 480px) {
-  :root {
-    --header-clearance: 116px;
-  }
-
   .container {
     padding: 0 28px;
   }
