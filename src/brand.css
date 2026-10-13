@@ -1770,7 +1770,8 @@ textarea:focus-visible {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 28px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
 
   .grid-3,
