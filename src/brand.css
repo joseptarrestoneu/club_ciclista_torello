@@ -1769,6 +1769,10 @@ textarea:focus-visible {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --header-clearance: 116px;
+  }
+
   .container {
     padding: 0 28px;
   }
