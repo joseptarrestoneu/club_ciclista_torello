@@ -84,7 +84,7 @@ export default function Contacte() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="formulari">
         <div className="container">
           <div className="contact-grid">
             <div>
