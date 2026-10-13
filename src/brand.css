@@ -54,10 +54,14 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  width: 100%;
   font-family: var(--font-body);
   background: var(--color-bg);
   color: var(--color-text);
@@ -1226,6 +1230,7 @@ form.contact-form {
 
 .band-split > div:first-child {
   max-width: 560px;
+  min-width: 0;
 }
 
 .band-actions {
@@ -1429,6 +1434,12 @@ form.contact-form {
   justify-content: space-between;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.cta-band > div,
+.cta-band > .band-actions {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .cta-band p {
@@ -1709,6 +1720,14 @@ textarea:focus-visible {
 @media (max-width: 720px) {
   .hero {
     min-height: 70vh;
+  }
+
+  .cta-band {
+    padding: 28px;
+  }
+
+  .cta-band .when strong {
+    font-size: 1.3rem;
   }
 
   .feature-row {
